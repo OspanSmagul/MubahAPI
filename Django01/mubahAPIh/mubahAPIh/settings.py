@@ -25,7 +25,7 @@ SECRET_KEY = ')*g)t*t62c8h7p=%td-fxyybh@nor4xwh#wf0^984z30ys(7xn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['185.139.70.41', 'mubah.mobi']
+ALLOWED_HOSTS = ['185.139.70.41', 'mubah.mobi', '127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'eNumber',
+    'enumber',
     'products',
     'companies',
 ]
