@@ -15,7 +15,7 @@ from rest_framework import generics, mixins
 from django.contrib import messages
 
 from products.models import Products
-from .serializers import ProductsSerializer 
+from .serializers import ProductsSerializer
 
 
 class JSONResponse(HttpResponse): 
@@ -29,12 +29,12 @@ class JSONResponse(HttpResponse):
 def products_list(request): 
     if request.method == 'GET': 
         products = Products.objects.all() 
-        products_serializer = ProductSerializer(products, many=True) 
+        products_serializer = ProductsSerializer(products, many=True)
         return JSONResponse(products_serializer.data) 
  
     elif request.method == 'POST': 
         product_data = JSONParser().parse(request) 
-        product_serializer = ProductSerializer(data=product_data) 
+        products_serializer = ProductsSerializer(data=product_data)
         if products_serializer.is_valid(): 
             products_serializer.save() 
             return JSONResponse(products_serializer.data,
@@ -66,6 +66,7 @@ def products_detail(request, pk):
     elif request.method == 'DELETE': 
         products.delete() 
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
 
 class ProductsAPIView(mixins.CreateModelMixin, generics.ListAPIView):  #DetailView  CreareView FormView
 	lookup_field = 'pk'
