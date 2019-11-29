@@ -21,7 +21,7 @@ from django.urls import path
 urlpatterns = [ 
     # url(r'^', include('enumber.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^enumber/', include('enumber.urls', namespace='api-enumber')),
+    # url(r'^enumber/', include('enumber.urls', namespace='api-enumber')),
     url(r'^companies/', include('companies.urls', namespace='api-products')),
     url(r'^products/', include('products.urls', namespace='api-companies')), 
 ] 
