@@ -51,12 +51,12 @@ def products_detail(request, pk):
         return HttpResponse(status=status.HTTP_404_NOT_FOUND) 
  
     if request.method == 'GET': 
-        products_serializer = ProductSerializer(products) 
+        products_serializer = ProductsSerializer(products)
         return JSONResponse(products_serializer.data) 
  
     elif request.method == 'PUT': 
         product_data = JSONParser().parse(request) 
-        products_serializer = ProductSerializer(products, data=product_data) 
+        products_serializer = ProductsSerializer(products, data=product_data)
         if products_serializer.is_valid(): 
             products_serializer.save() 
             return JSONResponse(products_serializer.data) 
